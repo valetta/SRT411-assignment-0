@@ -1,0 +1,154 @@
+---
+title: "SRT411A0.Rmd"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+## username: Valetta
+## The purpose of this assignment is to be able to efficiently use and understand the use of R language using Rstudio. It exercises the user to be able to create data frame, list of data, and data plots/graphs for future use. This also teaches the users to be able to use the Knitr and RMarkdown feature in R studio.
+
+## Document used: https://cran.r-project.org/doc/contrib/Torfs+Brauer-Short-R-Intro.pdf
+
+
+#Sources: 
+## http://stackoverflow.com/questions/18306362/run-r-script-from-command-line
+## https://nicercode.github.io/guides/reports/
+## http://kbroman.org/knitr_knutshell/pages/Rmarkdown.html
+## https://cran.r-project.org/doc/contrib/Torfs+Brauer-Short-R-Intro.pdf
+
+
+
+
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+((2017-2015)/(2017-1996))*100
+```
+
+
+```{r}
+a = ((2017-2015)/(2017-1996))*100
+a
+```
+
+
+```{r}
+sum(4,5,8,11)
+```
+
+
+```{r}
+plot(rnorm(100))
+```
+
+
+
+```{r}
+?sqrt
+```
+
+
+##```{r}
+##Rscript firstscript.R
+##```
+
+
+```{r}
+P = seq(from=31, to=60, by=1)
+Q= matrix(P,ncol = 5, nrow = 6)
+Q
+```
+
+```{r}
+x1=seq(from=1, to=100, by=1)
+x2=seq(from=101, to=200, by=1)
+x3=seq(from=201, to=300, by=1)
+t= data.frame(a=x1,b=x1+x2,c=x1+x2+x3)
+plot(t)
+```
+
+```{r}
+plot(t$a, type="l", ylim=range(t),lwd=3, col=rgb(1,0,0,0.3))
+lines(t$b, type="s", lwd=2,col=rgb(0.3,0.4,0.3,0.9))
+points(t$c, pch=20, cex=4,col=rgb(0,0,1,0.3))
+```
+
+```{r}
+sqrt(mean(rnorm(100)))
+```
+
+
+```{r}
+d = data.frame(g = c(3,4,5),h = c(12,43,54))
+write.table(d, file="tst2.txt", row.names=FALSE)
+d2 = read.table(file="tst1.txt",header=TRUE)
+d2$g*5
+```
+
+```{r}
+date1=strptime( c("20170202","20170824"),format="%Y%m%d")
+present=c(3,4)
+date1
+present
+```
+
+```{r}
+vector=seq(from=1, to=100, by=1)
+s=c()
+for(i in 1:100)
+{
+  if(vector[i]<5)
+  {
+    s[i]=vector[i]*10;
+  }
+  else if(vector[i]>90)
+  {
+    s[i]=vector[i]*10;
+  }
+  else
+  {
+    s[i]=vector[i]*0.1;
+  }
+}
+s
+```
+
+
+``` {r}
+funct = function(arg1,arg2 )
+{
+  vector[i]=arg1[i];
+  for(i in length(vector))
+  {
+    if(vector[i]<5)
+  {
+    s[i]=vector[i]*10;
+  }
+  else if(vector[i]>90)
+  {
+    s[i]=vector[i]*10;
+  }
+  else
+  {
+    s[i]=vector[i]*0.1;
+  }
+  }
+}
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
